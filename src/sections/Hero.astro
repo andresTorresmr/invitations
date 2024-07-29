@@ -1,0 +1,53 @@
+---
+import "@fontsource/great-vibes";
+---
+
+<section
+  class="w-full h-screen relative bg-black flex flex-col pointer-events-none"
+>
+  <img
+    class="sm:visible md:hidden -z-1 object-cover w-full h-full object-[40%] md:object-[50%] opacity-70 bg-no-repeat"
+    src="1.jpg"
+    alt=""
+  />
+  <img
+    class="hidden md:block -z-1 object-cover w-full h-full object-[60%] opacity-70"
+    src="Hero2.webp"
+    alt=""
+  />
+  <div
+    class="z-10 absolute text-white top-[40%] md:top-[10%] w-full md:w-auto md:left-[15%]"
+  >
+    <div
+      class="w-fit mx-auto flex flex-col text-[3.5em] md:text-[8em] 7xl:text-[12em] md:max-w-[450px] text-center"
+    >
+      <span class="animate-fade-in-up animate-delay-300">Save</span>
+      <small
+        class="text-[0.5em] md:text-[0.3em] mx-auto animate-fade-in animate-delay-300"
+        >The</small
+      >
+      <span class="animate-fade-in-down animate-delay-300">Date</span>
+      <p
+        class="text-[0.3em] md:text-[0.2em] xl:text-[0.1em] mx-auto text-center tracking-[0.2em] md:tracking-[0.4em] mb-2
+        animate-fade-in
+        animate-delay-500"
+      >
+        Andrés & Gabriela
+      </p>
+      <hr
+        class="border-[1px] rounded-full w-full animate-expand-horizontally animate-delay-1000 animate-duration-1000"
+      />
+      <p
+        class="mt-1 md:mt-0 text-[0.7em] md:text-[0.6em] overflow-hidden mx-auto text-nowrap animate-fade-in animate-delay-1000"
+      >
+        22 | 12 | 24
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  small {
+    font-family: "Great Vibes", cursive;
+  }
+</style>

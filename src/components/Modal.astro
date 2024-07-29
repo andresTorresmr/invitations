@@ -1,0 +1,106 @@
+---
+
+---
+
+<dialog
+  class="clip-dialog items-center justify-center bg-transparent px-4 text-2xl text-white sm:px-0 focus:outline-none"
+>
+  <div
+    class="relative flex flex-col items-center justify-center max-h-[70vh] bg-transparent max-w-[80vw] animate-fade-in animate-duration-300"
+  >
+    <!-- <iframe
+      class="yt-iframe block aspect-video h-full w-full overflow-hidden rounded bg-transparent"
+      src=""
+      title="Clips de la presentación de La Velada"
+      allow="autoplay"
+    >
+    </iframe> -->
+
+    <img
+      src=""
+      class="yt-iframe rounded-lg h-full w-full max-h-[70vh] bg-transparent object-cover"
+      alt=""
+    />
+    <!-- 
+    <button
+      type="button"
+      class="close-dialog fixed right-0 top-8 rounded bg-black/60 p-4 transition hover:scale-110 hover:bg-accent hover:text-black"
+    >
+      <svg
+        class="size-5"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 14 14"
+      >
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"></path>
+      </svg>
+    </button> -->
+  </div>
+</dialog>
+
+<style>
+  .clip-dialog[open]::backdrop {
+    background-color: rgba(235, 233, 233, 0.7);
+    backdrop-filter: blur(12px);
+  }
+</style>
+
+<script>
+  import { $, $$ } from "@/lib/dom-selector";
+
+  document.addEventListener("astro:page-load", () => {
+    const $clipContainer = $$(".clip-container");
+    const $clipDialog = $(".clip-dialog") as HTMLDialogElement;
+    const $closeButton = $(".close-dialog");
+    let $ytFrame = $(".yt-iframe");
+    const ytFrameCopy = $ytFrame;
+
+    if (!$clipDialog) return;
+
+    $clipDialog.addEventListener("close", () => {
+      if ($ytFrame !== null) {
+        $ytFrame.setAttribute("src", "");
+      } else {
+        ytFrameCopy?.setAttribute("src", "");
+      }
+    });
+
+    $closeButton?.addEventListener("click", () => {
+      $clipDialog.close();
+      if ($ytFrame !== null) {
+        $ytFrame.remove();
+      } else {
+        ytFrameCopy?.remove();
+      }
+    });
+
+    $clipDialog.addEventListener("click", (event) => {
+      const target = event.target as HTMLElement;
+      if (target === $clipDialog) $clipDialog.close();
+    });
+
+    $clipContainer?.forEach((el) => {
+      el.addEventListener("click", async (event) => {
+        const currentTarget = event.currentTarget as HTMLElement;
+        const { url } = currentTarget.dataset;
+        if (!url) return;
+        $ytFrame = $(".yt-iframe") as HTMLIFrameElement;
+        if ($ytFrame !== null) {
+          $ytFrame.setAttribute("src", `${url}`);
+        } else {
+          if (ytFrameCopy) {
+            $clipDialog?.querySelector("div")?.prepend(ytFrameCopy);
+            ytFrameCopy.setAttribute("src", `${url}`);
+          }
+        }
+        $clipDialog.showModal();
+      });
+    });
+  });
+</script>
