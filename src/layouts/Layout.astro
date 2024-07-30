@@ -1,5 +1,6 @@
 ---
 // Supports weights 400-900
+import SEO from "@/components/SEO.astro";
 import "@fontsource-variable/bodoni-moda";
 import { ViewTransitions } from "astro:transitions";
 
@@ -7,17 +8,28 @@ interface Props {
   title: string;
 }
 
-const { title } = Astro.props;
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  image?: string;
+}
+
+const { title, description, canonical, image } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
     <meta name="generator" content={Astro.generator} />
+    <SEO
+      canonical={canonical}
+      description={description}
+      image={image}
+      title={title}
+    />
     <title>{title}</title>
     <ViewTransitions />
   </head>

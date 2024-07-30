@@ -6,7 +6,7 @@
   class="clip-dialog items-center justify-center bg-transparent px-4 text-2xl text-white sm:px-0 focus:outline-none"
 >
   <div
-    class="relative flex flex-col items-center justify-center max-h-[70vh] bg-transparent max-w-[80vw] animate-fade-in animate-duration-300"
+    class="relative flex flex-col items-center justify-center max-h-[70vh] bg-transparent max-w-[80vw] animate-fade-in animate-duration-200"
   >
     <!-- <iframe
       class="yt-iframe block aspect-video h-full w-full overflow-hidden rounded bg-transparent"
@@ -17,31 +17,31 @@
     </iframe> -->
 
     <img
-      src=""
+      src="/Bento/galeria1.webp"
       class="yt-iframe rounded-lg h-full w-full max-h-[70vh] bg-transparent object-cover"
       alt=""
     />
-    <!-- 
-    <button
-      type="button"
-      class="close-dialog fixed right-0 top-8 rounded bg-black/60 p-4 transition hover:scale-110 hover:bg-accent hover:text-black"
-    >
-      <svg
-        class="size-5"
-        aria-hidden="true"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 14 14"
-      >
-        <path
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"></path>
-      </svg>
-    </button> -->
   </div>
+
+  <button
+    type="button"
+    class="close-dialog fixed right-10 top-8 rounded bg-transparent transition hover:scale-125 text-black focus:outline-none"
+  >
+    <svg
+      class="size-5"
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 14 14"
+    >
+      <path
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"></path>
+    </svg>
+  </button>
 </dialog>
 
 <style>
@@ -60,7 +60,6 @@
     const $closeButton = $(".close-dialog");
     let $ytFrame = $(".yt-iframe");
     const ytFrameCopy = $ytFrame;
-
     if (!$clipDialog) return;
 
     $clipDialog.addEventListener("close", () => {
