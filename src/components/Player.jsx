@@ -2,7 +2,7 @@ import { useRef, useState } from "preact/hooks";
 
 const Play = () => (
   <svg
-    class=" text-gray-800 dark:text-white w-10 md:w-12 h-10 md:h-12  flex items-center justify-center"
+    class=" text-white w-10 md:w-12 h-10 md:h-12  flex items-center justify-center"
     aria-hidden="true"
     fill="currentColor"
     viewBox="0 0 22 25"
@@ -17,7 +17,7 @@ const Play = () => (
 
 const Pause = () => (
   <svg
-    class=" text-gray-800 dark:text-white w-10 md:w-12 h-10 md:h-12 flex items-center justify-center"
+    class="text-white w-10 md:w-12 h-10 md:h-12 flex items-center justify-center"
     aria-hidden="true"
     fill="currentColor"
     viewBox="0 0 24 24"
